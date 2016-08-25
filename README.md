@@ -1,6 +1,6 @@
 FCC-calculator
 
-User story #1:  I can add, subtract, muliply and divide two numbers.
+User story #1:  I can add, subtract, multiply and divide two numbers.
 
 User story #2:  I can clear the input field with a clear button.
 
