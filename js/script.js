@@ -22,11 +22,11 @@ $(document).ready(function(){
     if(operator === "+"){
       number = parseFloat(firstNumber) + parseFloat(number);
     }else if(operator === "-"){
-      number = parseInt(firstNumber) - parseInt(number); 
+      number = parseFloat(firstNumber) - parseFloat(number); 
     }else if(operator === "/"){
-      number = parseInt(firstNumber) / parseInt(number);  
+      number = parseFloat(firstNumber) / parseFloat(number);  
     }else if(operator === "*"){
-      number = parseInt(firstNumber) * parseInt(number);
+      number = parseFloat(firstNumber) * parseFloat(number);
     }
     display.text(number);
     if(display.text().length > 6){
@@ -35,13 +35,13 @@ $(document).ready(function(){
     reset();
   }
 
-  $("#buttons #number").click(function(){
+  $("#buttons .number").click(function(){
     number += $(this).text();
     display.text(number);
     checkLength(number);
   });
 
-  $("#buttons #operation").click(function(){
+  $("#buttons .operation").click(function(){
     if(operator === ""){
       operator = $(this).text();
       if(counter < 1){
@@ -57,13 +57,13 @@ $(document).ready(function(){
     }
   });
 
-  $("#buttons #equals").click(function(){
+  $("#buttons .equals").click(function(){
     if(firstNumber !== "" && number !== ""){
       total();
     }  
   });
 
-  $("#buttons #clearall").click(function(){
+  $("#buttons .clearall").click(function(){
     display.text("0");
     firstNumber = "";
     number = "";
@@ -71,19 +71,22 @@ $(document).ready(function(){
     counter = 0;
   });
 
-  $("#buttons #clear").click(function(){
+  $("#buttons .clear").click(function(){
     number = "";
     display.text("0");
   });
 
-  $("#buttons #percent").click(function(){
-    if(number !== ""){
-      number = parseInt(number) / 100;
+  $("#buttons .percent").click(function(){
+    if(firstNumber !== ""){
+      number = parseInt(firstNumber) * parseInt(number) / 100;
+      display.text(number);
+    }else{
+      number = parseFloat(number) / 100;
       display.text(number);
     }
   });
     
-  $("#buttons #decimal").click(function(){
+  $("#buttons .decimal").click(function(){
     if(!number.includes('.')){
       number += $(this).text();
       display.text(number);  
