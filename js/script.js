@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  var number = "";	
+  var number = "";  
   var firstNumber = "";
   var operator = "";
   var display = $("#total");
@@ -12,8 +12,8 @@ $(document).ready(function(){
   }
 
   function reset() {
-  	firstNumber = display.text();
-    number = "";  	
+    firstNumber = display.text();
+    number = "";    
     operator = "";
     counter ++;
   }
@@ -42,7 +42,9 @@ $(document).ready(function(){
   });
 
   $("#buttons .operation").click(function(){
-    if(operator === ""){
+    if(operator === "" && number === "" && firstNumber === ""){
+      operator = "";
+    }else if(operator === ""){
       operator = $(this).text();
       if(counter < 1){
         firstNumber = number;
@@ -80,9 +82,11 @@ $(document).ready(function(){
     if(firstNumber !== ""){
       number = parseInt(firstNumber) * parseInt(number) / 100;
       display.text(number);
-    }else{
+    }else if(number !== ""){
       number = parseFloat(number) / 100;
       display.text(number);
+    }else{
+      display.text();
     }
   });
     
@@ -94,7 +98,6 @@ $(document).ready(function(){
     }      
   });  
 });
-
 
   
 
