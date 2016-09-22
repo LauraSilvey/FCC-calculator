@@ -29,6 +29,7 @@ button {
    border: .5px #4F6272 solid;
    background-color: #D9BDC5;
    font-size: 20px;
+   -webkit-tap-highlight-color: white;
 }
 
 button:active {
