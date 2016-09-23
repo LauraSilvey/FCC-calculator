@@ -7,8 +7,11 @@ $(document).ready(function(){
 
   function checkLength(number){
     if(number.length > 6){
-      display.text(number.substr(number.length - 6, 6));
-    }  
+      number = number.substr(0, 6);    
+      display.text(number);
+    }else{
+      display.text(number);
+    } 
   }
 
   function reset() {
@@ -37,7 +40,6 @@ $(document).ready(function(){
 
   $("#buttons .number").click(function(){
     number += $(this).text();
-    display.text(number);
     checkLength(number);
   });
 
