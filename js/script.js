@@ -4,6 +4,7 @@ $(document).ready(function(){
   var operator = "";
   var display = $("#total");
   var counter = 0;
+  var test;
 
   function checkLength(number){
     if(number.length > 6){
